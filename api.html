@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Weather App</title>
+        <link rel="shortcut icon" href="weather.png">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="api.css">
+    
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="card">
+                <h2><i class="fa fa-map-marker"></i><span id="location"></span></h2>
+                <h6 id="weather"></h6>
+                <h4><span id="temp"></span><sup>o</sup>C</h4>
+                <img src="" id="icon">
+                <button onclick="windows.location.reload()" class="refresh"><i class="fa fa-refresh"></i></button>
+            </div>
+        </div>
+        <!--the below jquery code taken from jquery cdn website with version more than 3.x ...  :)-->
+    </body>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" 
+     crossorigin="anonymous">   
+    </script> 
+    <script>
+       link = "https://api.openweathermap.org/data/2.5/weather?q=Jaipur&appid=a3daf613af2141160d4cab8c96f4787b"; //the details of this link is in notes 
+       var request = new XMLHttpRequest();  //used to access above url
+        request.open('GET',link,true);      //we you GET method here 
+        request.onload = function() {
+            var obj = JSON.parse(this.response);    //whatever response we get it is converted in JSON format
+            console.log(obj);
+            document.getElementById('weather').innerHTML = obj.weather[0].description;   // this code is written in the format same as on the console of webpage ..in weather we have description part
+            document.getElementById('location').innerHTML = obj.name;                   //same steps as above and name here derives the city name
+            document.getElementById('temp').innerHTML = Math.round(obj.main.temp -273.15);          //substraction is done to convert it in degree celsius
+            document.getElementById('icon').src = "https://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
+        
+        }
+        if(request.status>=200 && request.status <400) {
+            var temp = obj.main.temp;  //main in the console JSON file is used to show the data of temperature
+        
+        }
+        else {
+            console.log("The city data is not available");  //we can check in on console of webpage
+        }
+        request.send();
+
+    </script>
+</html>
