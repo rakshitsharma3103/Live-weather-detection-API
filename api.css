@@ -7,7 +7,7 @@ body{
     justify-content: center;
     font-family: "Poppins";   /*thesefonts we have taken from googleapis font page */
     color: white;
-    background: #343434;
+    background: #282326;
 }
 
 .container{
@@ -15,8 +15,8 @@ body{
 }
 .card {
     border-radius: 50px;
-    background-color: #343434;
-    box-shadow: 5px 5px 10px #191b1b, -5px -5px 10px #595959;
+    background-color: #636060;
+    box-shadow: 15px 15px 10px #57b7b7, -5px -5px 10px #595959;
     padding: 3%;
     text-align: center;
 
@@ -42,7 +42,7 @@ button.refresh{
     font-size: 30px;
     height: 100px;
     border-radius: 50%;
-    box-shadow: 10px 4px 10px #252525, 5px 5px 18px #4a4a4a ;
+    box-shadow: 10px 4px 20px #1882b0, 5px 5px 18px #2687e7 ;
 
 }
 button.refresh:hover{
